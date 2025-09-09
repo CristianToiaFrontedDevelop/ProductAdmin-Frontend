@@ -1,9 +1,12 @@
+import { lazy } from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 import Layout from './layouts/Layout';
-import Products, { loader as productLoader, action as updateAvailability } from './views/Products';
+import { loader as productLoader, action as updateAvailability } from './views/Products';
 import NewProduct, { action as newProductAction } from './views/NewProduct';
 import EditProduct, {loader as editProductLoader, action as editProductAction} from './views/EditProduct';
 import { action as deleteProductAction } from './components/ProductDetails';
+
+const Products = lazy(() => import('./views/Products'));
 
 export const router = createBrowserRouter([
     {
